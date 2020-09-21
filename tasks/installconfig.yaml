@@ -1,0 +1,12 @@
+---
+- name: create cluster install directory
+  file:
+    path: /opt/openshift-install/{{ clustername }}
+    state: directory
+    mode: '0755'
+ 
+
+- name: configure install config
+  template:
+    src: install-config.yaml.j2
+    dest: /opt/openshift-install/{{ clustername }}/install-config.yaml
